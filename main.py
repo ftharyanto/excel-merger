@@ -2,11 +2,13 @@ from PyQt5 import QtWidgets, QtCore, QtGui, uic
 from PyQt5.QtWidgets import QMessageBox
 import pandas as pd
 import sys, os
+from gui_linux import Ui_Dialog
 
-qtCreatorFile = "gui_linux.ui"
-Ui_MainWindow, QtBaseClass = uic.loadUiType(qtCreatorFile)
+# qtCreatorFile = "gui_linux.ui"
+# Ui_MainWindow, QtBaseClass = uic.loadUiType(qtCreatorFile)
+Ui_MainWindow = Ui_Dialog
 
-class ExcelProcessor(QtWidgets.QMainWindow, Ui_MainWindow):
+class ExcelMerger(QtWidgets.QMainWindow, Ui_MainWindow):
 
     def __init__(self):
 
@@ -34,6 +36,7 @@ class ExcelProcessor(QtWidgets.QMainWindow, Ui_MainWindow):
         cwd = self.lineEdit.text()
         files = os.listdir(cwd)
         files.sort()
+        files = [cwd + '/' + sub for sub in files]
         total_data = len(files)
         counter = 0
 
@@ -42,10 +45,10 @@ class ExcelProcessor(QtWidgets.QMainWindow, Ui_MainWindow):
         for i in range(total_data):
             if files[i].endswith('.xlsx') and not files[i].startswith('merged'):
                 df = df.append(pd.read_excel(files[i]), ignore_index=True)
-            counter = counter + (i+1)/total_data * 100
+            counter = int(counter + (i+1)/total_data * 100)
             self.progressBar.setValue(counter)
 
-        df.to_excel('merged.xlsx')
+        df.to_excel(cwd + '/merged.xlsx')
         self.statusProgress.setText('Finished')
         self.progressBar.setValue(100)
 
@@ -58,7 +61,7 @@ def main(argv):
     app = QtWidgets.QApplication(argv)
 
     # create main window
-    wnd = ExcelProcessor()
+    wnd = ExcelMerger()
     
     # Move the app window to upper left
     wnd.move(100,100)
