@@ -10,11 +10,11 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class Ui_Dialog(object):
-    def setupUi(self, Dialog):
-        Dialog.setObjectName("Dialog")
-        Dialog.resize(550, 173)
-        self.layoutWidget = QtWidgets.QWidget(Dialog)
+class Ui_MainWindow(object):
+    def setupUi(self, MainWindow):
+        MainWindow.setObjectName("MainWindow")
+        MainWindow.resize(550, 173)
+        self.layoutWidget = QtWidgets.QWidget(MainWindow)
         self.layoutWidget.setGeometry(QtCore.QRect(30, 40, 491, 38))
         self.layoutWidget.setObjectName("layoutWidget")
         self.horizontalLayout = QtWidgets.QHBoxLayout(self.layoutWidget)
@@ -29,10 +29,10 @@ class Ui_Dialog(object):
         self.browseButton = QtWidgets.QPushButton(self.layoutWidget)
         self.browseButton.setObjectName("browseButton")
         self.horizontalLayout.addWidget(self.browseButton)
-        self.processButton = QtWidgets.QPushButton(Dialog)
+        self.processButton = QtWidgets.QPushButton(MainWindow)
         self.processButton.setGeometry(QtCore.QRect(32, 92, 84, 36))
         self.processButton.setObjectName("processButton")
-        self.widget = QtWidgets.QWidget(Dialog)
+        self.widget = QtWidgets.QWidget(MainWindow)
         self.widget.setGeometry(QtCore.QRect(122, 96, 401, 55))
         self.widget.setObjectName("widget")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.widget)
@@ -47,12 +47,12 @@ class Ui_Dialog(object):
         self.statusProgress.setObjectName("statusProgress")
         self.verticalLayout.addWidget(self.statusProgress)
 
-        self.retranslateUi(Dialog)
-        QtCore.QMetaObject.connectSlotsByName(Dialog)
+        self.retranslateUi(MainWindow)
+        QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
-    def retranslateUi(self, Dialog):
+    def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
-        self.label.setText(_translate("Dialog", "Path"))
-        self.browseButton.setText(_translate("Dialog", "..."))
-        self.processButton.setText(_translate("Dialog", "Proses"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Dialog"))
+        self.label.setText(_translate("MainWindow", "Path"))
+        self.browseButton.setText(_translate("MainWindow", "..."))
+        self.processButton.setText(_translate("MainWindow", "Proses"))
