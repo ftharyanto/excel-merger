@@ -13,7 +13,7 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>30</x>
@@ -42,23 +42,29 @@
     </item>
    </layout>
   </widget>
+  <widget class="QPushButton" name="processButton">
+   <property name="geometry">
+    <rect>
+     <x>32</x>
+     <y>92</y>
+     <width>84</width>
+     <height>36</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Proses</string>
+   </property>
+  </widget>
   <widget class="QWidget" name="">
    <property name="geometry">
     <rect>
-     <x>71</x>
-     <y>91</y>
-     <width>451</width>
-     <height>38</height>
+     <x>122</x>
+     <y>96</y>
+     <width>401</width>
+     <height>55</height>
     </rect>
    </property>
-   <layout class="QHBoxLayout" name="horizontalLayout_2">
-    <item>
-     <widget class="QPushButton" name="processButton">
-      <property name="text">
-       <string>Proses</string>
-      </property>
-     </widget>
-    </item>
+   <layout class="QVBoxLayout" name="verticalLayout">
     <item>
      <widget class="QProgressBar" name="progressBar">
       <property name="value">
@@ -69,7 +75,7 @@
     <item>
      <widget class="QLabel" name="statusProgress">
       <property name="text">
-       <string>                                                           </string>
+       <string/>
       </property>
      </widget>
     </item>

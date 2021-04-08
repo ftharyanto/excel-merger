@@ -4,9 +4,14 @@ import pandas as pd
 import sys, os
 from gui_linux import Ui_Dialog
 
-# qtCreatorFile = "gui_linux.ui"
-# Ui_MainWindow, QtBaseClass = uic.loadUiType(qtCreatorFile)
-Ui_MainWindow = Ui_Dialog
+# set status to dev or stable
+status = 'stable'
+qtCreatorFile = "gui_linux.ui"
+
+if status == 'dev':
+    Ui_MainWindow, QtBaseClass = uic.loadUiType(qtCreatorFile)
+elif status == 'stable':
+    Ui_MainWindow = Ui_Dialog
 
 class ExcelMerger(QtWidgets.QMainWindow, Ui_MainWindow):
 
@@ -31,7 +36,7 @@ class ExcelMerger(QtWidgets.QMainWindow, Ui_MainWindow):
             msgBox.setText("Silakan isi direktori")
             msgBox.setWindowTitle("Pemberitahuan")
             msgBox.setStandardButtons(QMessageBox.Ok)
-            returnValue = msgBox.exec()
+            msgBox.exec()
 
         cwd = self.lineEdit.text()
         files = os.listdir(cwd)
@@ -41,9 +46,11 @@ class ExcelMerger(QtWidgets.QMainWindow, Ui_MainWindow):
         counter = 0
 
         df = pd.DataFrame()
-        self.statusProgress.setText('Processing...')
         for i in range(total_data):
-            if files[i].endswith('.xlsx') and not files[i].startswith('merged'):
+            self.statusProgress.setText('Merging Data...')
+            if files[i].endswith('.xlsx'):
+                if files[i].endswith('merged.xlsx'):
+                    continue
                 df = df.append(pd.read_excel(files[i]), ignore_index=True)
             counter = int(counter + (i+1)/total_data * 100)
             self.progressBar.setValue(counter)
