@@ -23,7 +23,7 @@ class ExcelMerger(QtWidgets.QMainWindow, Ui_MainWindow):
         self.setupUi(self)
 
         # Set the title for the app
-        self.setWindowTitle("Excel Processor")
+        self.setWindowTitle("Excel Merger")
 
         self.browseButton.clicked.connect(self.openFileNameDialog)
         self.processButton.clicked.connect(self.mergeExcelFiles)
