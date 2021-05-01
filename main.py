@@ -4,7 +4,7 @@ import pandas as pd
 import sys, os
 
 # set status to dev to use .ui file or stable to use .py file
-status = 'stable'
+status = 'dev'
 qtCreatorFile = "gui_linux.ui"
 
 if status == 'dev':
@@ -26,9 +26,9 @@ class ExcelMerger(QtWidgets.QMainWindow, Ui_MainWindow):
         self.setWindowTitle("Excel Merger")
 
         self.browseButton.clicked.connect(self.openFileNameDialog)
-        self.processButton.clicked.connect(self.mergeExcelFiles)
+        self.processButton.clicked.connect(self.mergeFiles)
 
-    def mergeExcelFiles(self):
+    def mergeFiles(self):
         if self.lineEdit.text() == '':
             msgBox = QMessageBox()
             msgBox.setIcon(QMessageBox.Information)
@@ -45,18 +45,34 @@ class ExcelMerger(QtWidgets.QMainWindow, Ui_MainWindow):
         counter = 0
 
         df = pd.DataFrame()
-        for i in range(total_data):
-            self.statusProgress.setText('Merging Data...')
-            if files[i].endswith('.xlsx'):
-                if files[i].endswith('merged.xlsx'):
-                    continue
-                df = df.append(pd.read_excel(files[i]), ignore_index=True)
-            counter = int(counter + (i+1)/total_data * 100)
-            self.progressBar.setValue(counter)
 
-        df.to_excel(cwd + '/merged.xlsx')
-        self.statusProgress.setText('Finished')
-        self.progressBar.setValue(100)
+        if self.radioExcel.isChecked():
+            for i in range(total_data):
+                self.statusProgress.setText('Merging Data...')
+                if files[i].endswith('.xlsx'):
+                    if files[i].endswith('merged.xlsx'):
+                        continue
+                    df = df.append(pd.read_excel(files[i]), ignore_index=True)
+                counter = int(counter + (i+1)/total_data * 100)
+                self.progressBar.setValue(counter)
+
+            df.to_excel(cwd + '/merged.xlsx')
+            self.statusProgress.setText('Finished')
+            self.progressBar.setValue(100)
+
+        elif self.radioCsv.isChecked():
+            for i in range(total_data):
+                self.statusProgress.setText('Merging Data...')
+                if files[i].endswith('.csv'):
+                    if files[i].endswith('merged.csv'):
+                        continue
+                    df = df.append(pd.read_csv(files[i]), ignore_index=True)
+                counter = int(counter + (i+1)/total_data * 100)
+                self.progressBar.setValue(counter)
+
+            df.to_csv(cwd + '/merged.csv')
+            self.statusProgress.setText('Finished')
+            self.progressBar.setValue(100)
 
     def openFileNameDialog(self):
         path = QtWidgets.QFileDialog.getExistingDirectory()

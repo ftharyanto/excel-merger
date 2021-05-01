@@ -15,7 +15,7 @@
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>icon/icon.png</normaloff>icon/icon.png</iconset>
+    <normaloff>icon/icon.ico</normaloff>icon/icon.ico</iconset>
   </property>
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
@@ -35,7 +35,14 @@
      </widget>
     </item>
     <item>
-     <widget class="QLineEdit" name="lineEdit"/>
+     <widget class="QLineEdit" name="lineEdit">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
     </item>
     <item>
      <widget class="QPushButton" name="browseButton">
@@ -84,6 +91,35 @@
      </widget>
     </item>
    </layout>
+  </widget>
+  <widget class="QRadioButton" name="radioExcel">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>10</y>
+     <width>71</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Excel</string>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QRadioButton" name="radioCsv">
+   <property name="geometry">
+    <rect>
+     <x>160</x>
+     <y>10</y>
+     <width>61</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>CSV</string>
+   </property>
   </widget>
  </widget>
  <resources/>
