@@ -1,2 +1,8 @@
-# excel-merger
-Merge .xlsx files
+# Format File Supported
+- XLS
+- XLSX
+- CSV
+
+# OS Supported
+- Windows
+- Linux

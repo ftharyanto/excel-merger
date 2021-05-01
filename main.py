@@ -49,7 +49,7 @@ class ExcelMerger(QtWidgets.QMainWindow, Ui_MainWindow):
         if self.radioExcel.isChecked():
             for i in range(total_data):
                 self.statusProgress.setText('Merging Data...')
-                if files[i].endswith('.xlsx'):
+                if files[i].endswith('.xlsx') or files[i].endswith('.xls'):
                     if files[i].endswith('merged.xlsx'):
                         continue
                     df = df.append(pd.read_excel(files[i]), ignore_index=True)
