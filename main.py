@@ -4,7 +4,7 @@ import pandas as pd
 import sys, os
 
 # set status to dev to use .ui file or stable to use .py file
-status = 'dev'
+status = 'stable'
 qtCreatorFile = "gui_linux.ui"
 
 if status == 'dev':
