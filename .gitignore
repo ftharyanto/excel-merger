@@ -129,7 +129,6 @@ dmypy.json
 .pyre/
 
 # custom
-samples/
 icon/icondesign.svg
 icon/socmed_preview.png
 icon/icon.png
