@@ -132,3 +132,4 @@ dmypy.json
 icon/icondesign.svg
 icon/socmed_preview.png
 icon/icon.png
+gui.py
