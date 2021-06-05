@@ -5,12 +5,12 @@ import sys, os
 
 # set status to dev to use .ui file or stable to use .py file
 status = 'stable'
-qtCreatorFile = "gui_linux.ui"
+qtCreatorFile = "gui.ui"
 
 if status == 'dev':
     Ui_MainWindow, QtBaseClass = uic.loadUiType(qtCreatorFile)
 elif status == 'stable':
-    from gui_linux import Ui_MainWindow
+    from gui import Ui_MainWindow
 
 class ExcelMerger(QtWidgets.QMainWindow, Ui_MainWindow):
 
