@@ -1,4 +1,4 @@
-from PyQt5 import QtWidgets, uic, sip
+from PyQt5 import QtWidgets, uic
 from PyQt5.QtWidgets import QMessageBox
 import pandas as pd
 import sys, os
