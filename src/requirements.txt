@@ -1,5 +1,5 @@
 PyInstaller >= 4.3
-PyQt5
-PyQt5.sip
+pyqt5
+pyqt5.sip
 pandas
 openpyxl
