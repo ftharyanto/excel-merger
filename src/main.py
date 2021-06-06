@@ -10,7 +10,7 @@ qtCreatorFile = "gui.ui"
 if status == 'dev':
     Ui_MainWindow, QtBaseClass = uic.loadUiType(qtCreatorFile)
 elif status == 'build':
-    from .gui import Ui_MainWindow
+    from . import Ui_MainWindow
 
 class ExcelMerger(QtWidgets.QMainWindow, Ui_MainWindow):
 
