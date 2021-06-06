@@ -1,5 +1,4 @@
 PyInstaller >= 4.3
 PyQt5
 pandas
-os
 openpyxl
