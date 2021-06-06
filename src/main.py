@@ -1,4 +1,4 @@
-from PyQt5 import QtWidgets, uic, sip
+from PyQt5 import QtWidgets, uic
 from PyQt5.QtWidgets import QMessageBox
 import pandas as pd
 import sys, os
@@ -10,7 +10,7 @@ qtCreatorFile = "gui.ui"
 if status == 'dev':
     Ui_MainWindow, QtBaseClass = uic.loadUiType(qtCreatorFile)
 elif status == 'build':
-    from . import Ui_MainWindow
+    from .gui import Ui_MainWindow
 
 class ExcelMerger(QtWidgets.QMainWindow, Ui_MainWindow):
 
