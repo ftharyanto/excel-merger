@@ -5,7 +5,7 @@ block_cipher = None
 
 
 a = Analysis(['main.py'],
-             pathex=['/media/ayato/Data/Projects/excel-merger'],
+             pathex=['/media/ayato/Data1/Projects/excel-merger/src'],
              binaries=[],
              datas=[],
              hiddenimports=[],
